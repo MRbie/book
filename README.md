@@ -1,4 +1,4 @@
-# book 版本1.0.0
+# 一：book 版本1.0.0
 ## 免费提供源码，有偿提供服务。
 ## 图书管理系统---基于Jsp+Servlet实现
 ***
@@ -20,7 +20,7 @@
 ![](https://github.com/MRbie/book/blob/master/WebContent/resource/images/book_update.png)
 
 
-# book 版本2.0.0
+# 二：book 版本2.0.0
 ## 免费提供源码，有偿提供服务。
 ## 待续......
 
