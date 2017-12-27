@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>book</display-name>
+  <welcome-file-list>
+  	<!-- 默认访问的是登录界面login.jsp页面 -->
+   <welcome-file>view/system/main/login.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+  	<servlet-name>UserLoginServlet</servlet-name>
+  	<servlet-class>com.bie.system.servlet.user.UserLoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UserLoginServlet</servlet-name>
+  	<url-pattern>/system/user/login</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>UserInfoDeleteServlet</servlet-name>
+  	<servlet-class>com.bie.system.servlet.user.UserInfoDeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UserInfoDeleteServlet</servlet-name>
+  	<url-pattern>/system/userinfo/delete</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>UserInfoInsertServlet</servlet-name>
+  	<servlet-class>com.bie.system.servlet.user.UserInfoInsertServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UserInfoInsertServlet</servlet-name>
+  	<url-pattern>/system/userinfoinsert</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>UserInfoLogOut</servlet-name>
+  	<servlet-class>com.bie.system.servlet.user.UserInfoLogOut</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UserInfoLogOut</servlet-name>
+  	<url-pattern>/system/user/logout</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>UserInfoSelectServlet</servlet-name>
+  	<servlet-class>com.bie.system.servlet.user.UserInfoSelectServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UserInfoSelectServlet</servlet-name>
+  	<url-pattern>/system/user/select</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>UserInfoUpdateServlet</servlet-name>
+  	<servlet-class>com.bie.system.servlet.user.UserInfoUpdateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UserInfoUpdateServlet</servlet-name>
+  	<url-pattern>/system/userinfo/update</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>BookBorrowServlet</servlet-name>
+  	<servlet-class>com.bie.system.servlet.book.BookBorrowServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BookBorrowServlet</servlet-name>
+  	<url-pattern>/system/book/borrow</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>BookDeleteServlet</servlet-name>
+  	<servlet-class>com.bie.system.servlet.book.BookDeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BookDeleteServlet</servlet-name>
+  	<url-pattern>/system/book/delete</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>BookInsertServlet</servlet-name>
+  	<servlet-class>com.bie.system.servlet.book.BookInsertServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BookInsertServlet</servlet-name>
+  	<url-pattern>/system/book/insert</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>BookRepayServlet</servlet-name>
+  	<servlet-class>com.bie.system.servlet.book.BookRepayServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BookRepayServlet</servlet-name>
+  	<url-pattern>/system/book/repay</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>BookSelectServlet</servlet-name>
+  	<servlet-class>com.bie.system.servlet.book.BookSelectServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BookSelectServlet</servlet-name>
+  	<url-pattern>/system/book/select</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>BookUpdateServlet</servlet-name>
+  	<servlet-class>com.bie.system.servlet.book.BookUpdateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BookUpdateServlet</servlet-name>
+  	<url-pattern>/system/book/update</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
