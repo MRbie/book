@@ -69,7 +69,14 @@
 					<td>${list.bookSum }</td>
 					<td>${list.bookMark }</td>
 					<td>
-						<a class="btn btn-warning btn-sm" href="system/book/borrow?bookId=${list.bookId}">借书</a> 
+						<c:choose>
+							<c:when test="${list.bookSum  ==0}">
+								<a id="clickIt" class="btn btn-default btn-sm" href="javascript:void(0)">借书</a> 
+							</c:when>
+							<c:when test="${list.bookSum  > 0}">
+								<a class="btn btn-warning btn-sm" href="system/book/borrow?bookId=${list.bookId}">借书</a> 
+							</c:when>
+						</c:choose>
 						<a class="btn btn-danger btn-sm" href="system/book/repay?bookId=${list.bookId}">还书</a>
 					</td>
 					<td>

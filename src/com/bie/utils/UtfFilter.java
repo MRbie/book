@@ -15,7 +15,7 @@ import javax.servlet.annotation.WebFilter;
  * @author biehongli
  *
  */
-@WebFilter("/*")
+//@WebFilter("/*")
 public class UtfFilter implements Filter{
 
 	@Override
