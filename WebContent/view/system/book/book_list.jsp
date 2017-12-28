@@ -16,8 +16,17 @@
 <title>用户管理-用户查询</title>
 <link href="resource/css/bootstrap.min.css" rel="stylesheet" />
 <script type="text/javascript" src="resource/js/jquery.min.js"></script>
-<script type="text/javascript"
-	src="resource/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="resource/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#clickIt").click(function(){
+			alert("sorry,此类图书数量为0,不可借阅......");
+		});
+	});
+
+</script>
 </head>
 <body>
 	<div>
