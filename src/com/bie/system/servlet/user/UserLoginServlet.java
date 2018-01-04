@@ -43,15 +43,20 @@ public class UserLoginServlet extends HttpServlet{
 		user.setUserPw(userPw);
 		
 		//测试输出的账号和密码
-		System.out.println("账号" + userAccount +  " 密码： " + userPw);
+		//System.out.println("账号" + userAccount +  " 密码： " + userPw);
 		UserInfoInsertService UserInfoInsertService = new UserInfoInsertServiceImpl();
 		UserInfo userLogin = UserInfoInsertService.login(user);
+		if(userLogin != null){
+			System.out.println("账号: " + userLogin.getUserAccount() + "密码: " + userLogin.getUserPw());
+			//将不为空的账号信息保存到session中
+			HttpSession session = request.getSession();
+			session.setAttribute("userLogin", userLogin);
+			request.setAttribute("userLogin", userLogin);
+		}
+		
+		
 		//如果返回的不会空,就说明有这个用户,登录成功
 		if(userLogin != null && userAccount != null && userPw !=null && !"".equals(userAccount) && !"".equals(userPw)){
-			//将不为空的账号信息保存到session中
-			 HttpSession session = request.getSession();
-			 session.setAttribute("userLogin", userLogin);
-			 request.setAttribute("userLogin", userLogin);
 			 //转化操作,携带数据
 			 request.getRequestDispatcher("/view/system/main/index.jsp").forward(request, response);
 		}else{

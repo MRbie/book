@@ -7,8 +7,8 @@ package com.bie.utils;
 public class MarkUtils {
 
 	//用户信息的的标识
-	public static final String USER_MARK_MEMBER="0";//0代表普通会员
-	public static final String USER_MARK_MANAGER="1";//1代表管理员
+	public static final String USER_MARK_MEMBER="普通会员";//0代表普通会员
+	public static final String USER_MARK_MANAGER="管理员";//1代表管理员
 	
 	
 }
