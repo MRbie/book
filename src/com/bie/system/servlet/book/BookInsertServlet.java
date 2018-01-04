@@ -48,9 +48,17 @@ public class BookInsertServlet extends HttpServlet{
 		//commy-web-0.0.1.jar
 		Book book=RequestBeanUtils.requestToSimpleBean(request, Book.class);
 		
-		String bookType = request.getParameter("bookType");
-		book.setBookType(bookType);
-		System.out.println(book + " " + book.getBookType());//测试到这里是否出现bug
+		//String bookType = request.getParameter("bookType");
+		//book.setBookType(bookType);
+		System.out.println(book);//测试到这里是否出现bug
+		
+		//查询出图书类别名称
+		BookSortService bookSortService = new BookSortServiceImpl();
+		BookSort bookSort = new BookSort();
+		bookSort.setBookSortId(book.getBookSortId());
+		BookSort bookSortName = bookSortService.getBookSortId(bookSort);
+		//将查询的值设置到图书表的图书类别中，此种做法不可取
+		book.setBookType(bookSortName.getBookSortName());
 		
 		//然后在servlet层调用service逻辑处理层
 		BookService service = new BookServiceImpl();

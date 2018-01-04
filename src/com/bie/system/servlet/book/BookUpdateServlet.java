@@ -61,7 +61,16 @@ public class BookUpdateServlet extends HttpServlet{
 		
 		//然后在servlet层调用service逻辑处理层
 		BookService service = new BookServiceImpl();
-
+		
+		//查询出图书类别名称
+		BookSortService bookSortService = new BookSortServiceImpl();
+		BookSort bookSort = new BookSort();
+		bookSort.setBookSortId(book.getBookSortId());
+		BookSort bookSortName = bookSortService.getBookSortId(bookSort);
+		//将查询的值设置到图书表的图书类别中，此种做法不可取
+		book.setBookType(bookSortName.getBookSortName());
+				
+		
         //查询过后进行修改,对user2进行修改哦，切记不要修改user哦
 		//调用service逻辑处理层的插入方法,返回布尔类型
 		boolean mark=service.updateBook(book);

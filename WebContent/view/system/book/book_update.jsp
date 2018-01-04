@@ -99,10 +99,10 @@ $().ready(function() {
 					<label class="col-xs-3 control-label">图书类型</label>
 					<div class="col-xs-9 ">
 						<%-- <input type="text" required value="${books.bookType }" name="bookType" class="form-control" placeholder="请输入图书类型" /> --%>
-						<select class="form-control" name="bookType" >
+						<select class="form-control" name="bookSortId" >
 							<c:forEach items="${selectBookSort }" var="sbs">
 								<%-- <option value="${sbs.bookSortId  }"> --%>
-								<option>
+								<option value="${sbs.bookSortId  }" ${books.bookSortId==sbs.bookSortId?'selected':'' }>
 									${sbs.bookSortName }
 								</option>
 							</c:forEach>

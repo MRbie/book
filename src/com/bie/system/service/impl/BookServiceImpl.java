@@ -17,10 +17,11 @@ public class BookServiceImpl implements BookService{
 		try{
 			//book_id book_name book_author book_price book_type book_publish book_sum book_mark
 			if(book!=null){
-				String sql="INSERT INTO book_info(book_name,book_author,book_price,book_type,book_publish,book_sum)"
-						+ " VALUES(?,?,?,?,?,?)";
+				String sql="INSERT INTO book_info(book_sort_id,book_name,book_author,book_price,book_type,book_publish,book_sum)"
+						+ " VALUES(?,?,?,?,?,?,?)";
 				List<Object> list=new ArrayList<Object>();
 				//可以理解位将实体类中get到的信息放到数据库中，因为set设置的信息就是为了查到数据库中
+				list.add(book.getBookSortId());
 				list.add(book.getBookName());
 				list.add(book.getBookAuthor());
 				list.add(book.getBookPrice());
