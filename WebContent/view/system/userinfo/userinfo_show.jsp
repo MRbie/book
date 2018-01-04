@@ -29,7 +29,7 @@
 		</ul>
 	</div>
 <form action="" class="form-horizontal">
-		<input type="hidden" name="userId" value="${user.userId }"/>
+		<input type="hidden" name="userId" value="${userLogin.userId }"/>
 		<h5 class="page-header alert-info"
 			style="margin: 0px; padding: 10px; margin-bottom: 10px;">基本信息</h5>
 		<!-- 开始1 -->

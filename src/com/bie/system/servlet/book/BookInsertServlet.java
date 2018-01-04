@@ -1,6 +1,7 @@
 package com.bie.system.servlet.book;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,8 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bie.po.Book;
+import com.bie.po.BookSort;
 import com.bie.system.service.BookService;
+import com.bie.system.service.BookSortService;
 import com.bie.system.service.impl.BookServiceImpl;
+import com.bie.system.service.impl.BookSortServiceImpl;
 import com.my.web.servlet.RequestBeanUtils;
 
 /***
@@ -25,6 +29,16 @@ import com.my.web.servlet.RequestBeanUtils;
 public class BookInsertServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;//序列号
+	
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//直接调用图书类别的业务逻辑层
+		BookSortService bookSortService = new BookSortServiceImpl();
+		List<BookSort> selectBookSort = bookSortService.selectBookSort(null);
+		//将获取的用户信息保存到域中
+		request.setAttribute("selectBookSort", selectBookSort);
+		request.getRequestDispatcher("/view/system/book/book_add.jsp").forward(request, response);
+	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
@@ -33,7 +47,11 @@ public class BookInsertServlet extends HttpServlet{
 		//commons-beanutils-1.8.3.jar  commons-logging-1.1.1.jar
 		//commy-web-0.0.1.jar
 		Book book=RequestBeanUtils.requestToSimpleBean(request, Book.class);
-		System.out.println(book);//测试到这里是否出现bug
+		
+		String bookType = request.getParameter("bookType");
+		book.setBookType(bookType);
+		System.out.println(book + " " + book.getBookType());//测试到这里是否出现bug
+		
 		//然后在servlet层调用service逻辑处理层
 		BookService service = new BookServiceImpl();
 		//调用service逻辑处理层的插入方法,返回布尔类型

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	//获取绝对路径路径 
 	String path = request.getContextPath();
@@ -96,7 +97,14 @@ $().ready(function() {
 				<div class="form-group ">
 					<label class="col-xs-3 control-label">图书类型</label>
 					<div class="col-xs-9 ">
-						<input type="text" required name="bookType" class="form-control" placeholder="请输入图书类型" />
+						<!-- <input type="text" required name="bookType" class="form-control" placeholder="请输入图书类型" /> -->
+						<select class="form-control" name="bookType" >
+							<c:forEach items="${selectBookSort }" var="sbs">
+								<option>
+									${sbs.bookSortName }
+								</option>
+							</c:forEach>
+						</select>
 					</div>
 				</div>
 			</div>

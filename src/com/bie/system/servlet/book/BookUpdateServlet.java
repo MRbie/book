@@ -1,6 +1,7 @@
 package com.bie.system.servlet.book;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,10 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bie.po.Book;
+import com.bie.po.BookSort;
 import com.bie.po.UserInfo;
 import com.bie.system.service.BookService;
+import com.bie.system.service.BookSortService;
 import com.bie.system.service.UserInfoInsertService;
 import com.bie.system.service.impl.BookServiceImpl;
+import com.bie.system.service.impl.BookSortServiceImpl;
 import com.bie.system.service.impl.UserInfoInsertServiceImpl;
 import com.my.web.servlet.RequestBeanUtils;
 
@@ -39,6 +43,13 @@ public class BookUpdateServlet extends HttpServlet{
 		Book books = service.getBookId(book);
 		
 		request.setAttribute("books", books);
+		
+		//直接调用图书类别的业务逻辑层
+		BookSortService bookSortService = new BookSortServiceImpl();
+		List<BookSort> selectBookSort = bookSortService.selectBookSort(null);
+		//将获取的用户信息保存到域中
+		request.setAttribute("selectBookSort", selectBookSort);
+			
 		request.getRequestDispatcher("/view/system/book/book_update.jsp").forward(request, response);
 	}
 

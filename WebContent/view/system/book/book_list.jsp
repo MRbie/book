@@ -47,7 +47,10 @@
 				<input type="text" name="content" value="${result }" class="form-control" placeholder="请输入查询条件" />
 			</div>
 			<input type="submit" class="btn btn-danger" value="查询"> 
-			<a href="view/system/book/book_add.jsp" class="btn btn-success">
+			<!-- <a href="view/system/book/book_add.jsp" class="btn btn-success">
+				添加图书
+			</a> -->
+			<a href="system/book/insert" class="btn btn-success">
 				添加图书
 			</a>
 		</div>

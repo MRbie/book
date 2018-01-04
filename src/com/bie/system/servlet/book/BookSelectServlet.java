@@ -10,9 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bie.po.Book;
+import com.bie.po.BookSort;
 import com.bie.po.UserInfo;
 import com.bie.system.service.BookService;
+import com.bie.system.service.BookSortService;
 import com.bie.system.service.impl.BookServiceImpl;
+import com.bie.system.service.impl.BookSortServiceImpl;
 
 /**
  * 用户查询的Sevlet
@@ -66,6 +69,7 @@ public class BookSelectServlet extends HttpServlet{
 			result = bookAuthor;
 		}
 		request.setAttribute("result", result);
+		
 		//转化操作,携带数据
 		request.getRequestDispatcher("/view/system/book/book_list.jsp").forward(request, response);
 	}

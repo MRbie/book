@@ -15,6 +15,11 @@ public class Book {
 	private String bookPublish;//图书出版社
 	private int bookSum;//图书总数
 	private String bookMark;//图书标识
+	
+	//图书类别的名称和图书类别的编号
+	private int bookSortId;//图书类别的编号
+	private String bookSortName;//图书类别的名称
+	
 	public int getBookId() {
 		return bookId;
 	}
@@ -63,27 +68,19 @@ public class Book {
 	public void setBookMark(String bookMark) {
 		this.bookMark = bookMark;
 	}
-	@Override
-	public String toString() {
-		return "Book [bookId=" + bookId + ", bookName=" + bookName + ", bookAuthor=" + bookAuthor + ", bookPrice="
-				+ bookPrice + ", bookType=" + bookType + ", bookPublish=" + bookPublish + ", bookSum=" + bookSum
-				+ ", bookMark=" + bookMark + "]";
+	public int getBookSortId() {
+		return bookSortId;
 	}
-	public Book(int bookId, String bookName, String bookAuthor, Double bookPrice, String bookType, String bookPublish,
-			int bookSum, String bookMark) {
-		super();
-		this.bookId = bookId;
-		this.bookName = bookName;
-		this.bookAuthor = bookAuthor;
-		this.bookPrice = bookPrice;
-		this.bookType = bookType;
-		this.bookPublish = bookPublish;
-		this.bookSum = bookSum;
-		this.bookMark = bookMark;
+	public void setBookSortId(int bookSortId) {
+		this.bookSortId = bookSortId;
 	}
-	public Book() {
-		super();
+	public String getBookSortName() {
+		return bookSortName;
 	}
+	public void setBookSortName(String bookSortName) {
+		this.bookSortName = bookSortName;
+	}
+	
 	
 	
 	
