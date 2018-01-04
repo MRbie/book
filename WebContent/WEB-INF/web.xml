@@ -6,6 +6,36 @@
    <welcome-file>view/system/main/login.jsp</welcome-file>
   </welcome-file-list>
   
+  	<!-- 过滤器声明 -->
+    <filter>
+    <!-- 过滤器的名称 -->
+        <filter-name>LoginFilter</filter-name>
+        <!-- 过滤器的完整类名 -->
+        <filter-class>com.bie.utils.LoginFilter</filter-class>
+    </filter>
+	<!-- 过滤器的映射 -->    
+    <filter-mapping>
+    <!-- 过滤器的名称 -->
+        <filter-name>LoginFilter</filter-name>
+    <!-- 过滤器的URL映射 -->    
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+   
+    <!-- 过滤器声明 -->
+    <filter>
+    <!-- 过滤器的名称 -->
+        <filter-name>UtfFilter</filter-name>
+        <!-- 过滤器的完整类名 -->
+        <filter-class>com.bie.utils.UtfFilter</filter-class>
+    </filter>
+	<!-- 过滤器的映射 -->    
+    <filter-mapping>
+    <!-- 过滤器的名称 -->
+        <filter-name>UtfFilter</filter-name>
+    <!-- 过滤器的URL映射 -->    
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+  
   <servlet>
   	<servlet-name>UserLoginServlet</servlet-name>
   	<servlet-class>com.bie.system.servlet.user.UserLoginServlet</servlet-class>
@@ -119,22 +149,6 @@
   	<url-pattern>/system/book/update</url-pattern>
   </servlet-mapping>
   
-  	<!-- 过滤器声明 -->
-    <filter>
-    <!-- 过滤器的名称 -->
-        <filter-name>UtfFilter</filter-name>
-        <!-- 过滤器的完整类名 -->
-        <filter-class>com.bie.utils.UtfFilter</filter-class>
-    </filter>
-	<!-- 过滤器的映射 -->    
-    <filter-mapping>
-    <!-- 过滤器的名称 -->
-        <filter-name>UtfFilter</filter-name>
-    <!-- 过滤器的URL映射 -->    
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-    
-    
     <servlet>
   		<servlet-name>UserInfoRegisterServlet</servlet-name>
   		<servlet-class>com.bie.system.servlet.user.UserInfoRegisterServlet</servlet-class>
@@ -144,19 +158,41 @@
   		<url-pattern>/system/user/register</url-pattern>
   	</servlet-mapping>
   	
+    
+    <!-- 以下为图书类别的 -->
+    <servlet>
+  		<servlet-name>BookSortSelectServlet</servlet-name>
+  		<servlet-class>com.bie.system.servlet.bookSort.BookSortSelectServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>BookSortSelectServlet</servlet-name>
+  		<url-pattern>/system/bookSort/select</url-pattern>
+  	</servlet-mapping>
   	
-  	<!-- 过滤器声明 -->
-    <filter>
-    <!-- 过滤器的名称 -->
-        <filter-name>LoginFilter</filter-name>
-        <!-- 过滤器的完整类名 -->
-        <filter-class>com.bie.utils.LoginFilter</filter-class>
-    </filter>
-	<!-- 过滤器的映射 -->    
-    <filter-mapping>
-    <!-- 过滤器的名称 -->
-        <filter-name>LoginFilter</filter-name>
-    <!-- 过滤器的URL映射 -->    
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
+  	<servlet>
+  		<servlet-name>BookSortUpdateServlet</servlet-name>
+  		<servlet-class>com.bie.system.servlet.bookSort.BookSortUpdateServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>BookSortUpdateServlet</servlet-name>
+  		<url-pattern>/system/bookSort/update</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+  		<servlet-name>BookSortDeleteServlet</servlet-name>
+  		<servlet-class>com.bie.system.servlet.bookSort.BookSortDeleteServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>BookSortDeleteServlet</servlet-name>
+  		<url-pattern>/system/bookSort/delete</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+  		<servlet-name>BookSortInsertServlet</servlet-name>
+  		<servlet-class>com.bie.system.servlet.bookSort.BookSortInsertServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>BookSortInsertServlet</servlet-name>
+  		<url-pattern>/system/bookSort/insert</url-pattern>
+  	</servlet-mapping>
 </web-app>

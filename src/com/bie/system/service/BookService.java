@@ -14,15 +14,15 @@ import com.bie.po.UserInfo;
 public interface BookService {
 
 	/***
-	 * 向数据库插入(添加)数据(用户的信息)
-	 * @param user  用户的信息
+	 * 向数据库插入(添加)数据(图书的信息)
+	 * @param user  图书的信息
 	 * @return true表示插入成功，false表示插入失败
 	 */
 	public boolean insertBook(Book book);
 	
 	
 	/***
-	 * 用户查询的信息
+	 * 图书查询的信息
 	 * @param Book
 	 * @return
 	 */
@@ -36,14 +36,14 @@ public interface BookService {
 	public boolean deleteBook(Book book);
 	
 	/***
-	 * 用户修改的方法
+	 * 图书修改的方法
 	 * @param Book
 	 * @return
 	 */
 	public boolean updateBook(Book book);
 
 	/**
-	 * 根据用户id进行查询操作
+	 * 根据图书id进行查询操作
 	 * @param Book
 	 * @return
 	 */

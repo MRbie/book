@@ -51,12 +51,12 @@ public class BookServiceImpl implements BookService{
 		if(book!=null){
 			//按照图书名称查询
 			if(book.getBookName()!=null && !book.getBookName().equals("")){
-				sql.append(" and book_name = ? ");
+				sql.append(" and book_name like ? ");
 				list.add(book.getBookName());
 			}
 			//按照用户账号查询
 			if(book.getBookAuthor()!=null && !book.getBookAuthor().equals("")){
-				sql.append(" and book_author = ? ");
+				sql.append(" and book_author like ? ");
 				list.add(book.getBookAuthor());
 			}
 			

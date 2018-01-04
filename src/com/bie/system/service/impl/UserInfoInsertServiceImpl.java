@@ -80,12 +80,12 @@ public class UserInfoInsertServiceImpl implements UserInfoInsertService{
 		if(user!=null){
 			//按照姓名查询
 			if(user.getUserName()!=null && !user.getUserName().equals("")){
-				sql.append(" and user_name = ? ");
+				sql.append(" and user_name like ? ");
 				list.add(user.getUserName());
 			}
 			//按照用户账号查询
 			if(user.getUserAccount()!=null && !user.getUserAccount().equals("")){
-				sql.append(" and user_account = ? ");
+				sql.append(" and user_account like ? ");
 				list.add(user.getUserAccount());
 			}
 			

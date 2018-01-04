@@ -158,6 +158,9 @@
                             <li><a href="system/book/select" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 图书管理
 							</a></li>
+							<li><a href="system/bookSort/select" target="mainframe"> <i
+									class="icon-double-angle-right"></i> 图书类别
+							</a></li>
                       	     <!-- <li><a href="view/crm/customer/customer_list.html" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 图书记录管理
 							</a></li> -->
