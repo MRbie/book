@@ -33,4 +33,5 @@ public interface UserInfoDao {
 	 */
 	public UserInfo getUserId(Integer userId);
 	
+	
 }

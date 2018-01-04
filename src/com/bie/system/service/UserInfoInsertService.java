@@ -56,4 +56,13 @@ public interface UserInfoInsertService {
 	 * @return
 	 */
 	public UserInfo getUserId(UserInfo user);
+	
+	
+	/***
+	 * 注册用户
+	 * 向数据库插入(添加)数据(用户的信息)
+	 * @param user  用户的信息
+	 * @return true表示插入成功，false表示插入失败
+	 */
+	public boolean registerUser(UserInfo user);
 }

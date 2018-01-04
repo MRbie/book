@@ -154,4 +154,43 @@ public class UserInfoInsertServiceImpl implements UserInfoInsertService{
 		}
 		return null;
 	}
+
+	@Override
+	public boolean registerUser(UserInfo user) {
+		try{
+			//System.out.println(user);//测试传来的UserInfo里面是否够存在用户信息
+			if(user!=null && user.getUserAccount()!=null){
+				String sql="INSERT INTO user_info(user_account,user_pw,"
+						+ "user_number,user_name,user_age,user_sex,user_mark)"
+						+ " VALUES(?,?,?,?,?,?,?)";
+				List<Object> list=new ArrayList<Object>();
+				//可以理解位将实体类中get到的信息放到数据库中，因为set设置的信息就是为了查到数据库中
+				list.add(user.getUserAccount());//将设置好的账号信息保存到集合中
+				list.add(user.getUserPw());//将设置好的账号信息保存到集合中
+				list.add(user.getUserNumber());//将设置好的密码信息保存到集合中
+				list.add(user.getUserName());//将设置好的姓名信息保存到集合中
+				list.add(user.getUserAge());//将设置好的年龄信息保存到集合中
+				list.add(user.getUserSex());//将设置好的性别信息保存到集合中
+				//list.add(user.getUserMark());//将设置好的标识信息保存到集合中
+				
+				//注册只可以注册普通学生
+				user.setUserMark(MarkUtils.USER_MARK_MEMBER);
+				//将设置为默认的管理员添加到数据库
+				list.add(user.getUserMark());
+				
+				//将封装到集合list中的信息和sql语句传递到DbUtils封装好的 方法中
+				//这里sql转化位String语句，list转化位数组类型
+				int count=BaseDao.addAndUpdate(sql.toString(), list.toArray());
+				//System.out.println(count);//测试返回值是0还是1
+				if(count>0){
+					return true;//成功返回true
+				}else{
+					return false;//失败返回false
+				}
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return false;
+	}
 }

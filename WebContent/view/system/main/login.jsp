@@ -60,10 +60,12 @@
 												<div class="clearfix">
 											
 
-													<button type="submit"
+													<button type="submit" 
 														class="width-35 pull-right btn btn-sm btn-primary">
 														<i class="icon-key"></i> 登陆
 													</button>
+													<a href="view/system/main/register.jsp" class="width-35 pull-left btn btn-sm btn-primary">注册</a>
+													
 												</div>
 
 												<div class="space-4"></div>

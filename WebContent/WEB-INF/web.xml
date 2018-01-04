@@ -133,4 +133,14 @@
     <!-- 过滤器的URL映射 -->    
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    
+    
+    <servlet>
+  		<servlet-name>UserInfoRegisterServlet</servlet-name>
+  		<servlet-class>com.bie.system.servlet.user.UserInfoRegisterServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>UserInfoRegisterServlet</servlet-name>
+  		<url-pattern>/system/user/register</url-pattern>
+  	</servlet-mapping>
 </web-app>
