@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 /***
  * 数据交互层dao层
@@ -13,11 +14,25 @@ import java.sql.SQLException;
  */
 public class BaseDao {
 
-	private static String driver="com.mysql.jdbc.Driver";
+	//第一种，方便个人使用，测试。
+	/*private static String driver="com.mysql.jdbc.Driver";
     private static String url="jdbc:mysql:///book";
     private static String user="root";
-    private static String password="123456";
+    private static String password="123456";*/
     
+    //两种连接数据库的方式，下面这种方便配置，因为每个人的账号和密码不一定一样。
+    private static String drivername = null;//数据库驱动，为了加载数据库驱动
+	private static String url = null;//数据库连接字符串，只要是找到自己的数据库，需要和自己的数据库一致
+	private static String user = null;//数据库账号，需要和自己的一致
+	private static String password = null;//数据库密码，需要和自己的一致
+	
+	static{
+		drivername=ResourceBundle.getBundle("db").getString("drivername");
+		url=ResourceBundle.getBundle("db").getString("url");
+		user=ResourceBundle.getBundle("db").getString("user");
+		password=ResourceBundle.getBundle("db").getString("password");
+	}
+	
     /***
      * 连接数据库的方法
      * @return
@@ -26,7 +41,7 @@ public class BaseDao {
      */
     public static Connection getCon() throws ClassNotFoundException, SQLException{
     	//加载数据库驱动
-    	Class.forName(driver);
+    	Class.forName(drivername);
         System.out.println("测试加载数据库成功");
         //数据库连接操作
         Connection con=DriverManager.getConnection(url, user, password);
