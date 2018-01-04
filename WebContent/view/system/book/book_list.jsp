@@ -62,7 +62,7 @@
 					<th>图书类型</th>
 					<th>图书出版社</th>
 					<th>图书总数</th>
-					<th>图书标识</th>
+					<!-- <th>图书标识</th> -->
 					<th>图书操作</th>
 					<td>操作</td>
 				</tr>
@@ -76,7 +76,7 @@
 					<td>${list.bookType }</td>
 					<td>${list.bookPublish }</td>
 					<td>${list.bookSum }</td>
-					<td>${list.bookMark }</td>
+					<%-- <td>${list.bookMark }</td> --%>
 					<td>
 						<c:choose>
 							<c:when test="${list.bookSum  ==0}">
