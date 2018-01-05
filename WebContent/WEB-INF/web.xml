@@ -195,4 +195,15 @@
   		<servlet-name>BookSortInsertServlet</servlet-name>
   		<url-pattern>/system/bookSort/insert</url-pattern>
   	</servlet-mapping>
+  	
+  	<servlet>
+  		<servlet-name>UserInfoShowServlet</servlet-name>
+  		<servlet-class>com.bie.system.servlet.user.UserInfoShowServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>UserInfoShowServlet</servlet-name>
+  		<url-pattern>/system/userinfo/show</url-pattern>
+  	</servlet-mapping>
+  	
+  	
 </web-app>
