@@ -53,15 +53,18 @@ public class BookServiceImpl implements BookService{
 			//按照图书名称查询
 			if(book.getBookName()!=null && !book.getBookName().equals("")){
 				sql.append(" and book_name like ? ");
-				list.add(book.getBookName());
+				//模糊查询的写法
+				//list.add("%"+product.getProductName()+"%");
+				list.add("%"+book.getBookName()+"%");
 			}
 			//按照用户账号查询
 			if(book.getBookAuthor()!=null && !book.getBookAuthor().equals("")){
 				sql.append(" and book_author like ? ");
-				list.add(book.getBookAuthor());
+				list.add("%"+book.getBookAuthor()+"%");
 			}
 			
 		}
+		sql.append(" order by a.product_id desc ");
 		return bookDao.selectBook(sql.toString(), list.toArray());
 	}
 

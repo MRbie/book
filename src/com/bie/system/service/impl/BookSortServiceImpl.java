@@ -53,7 +53,7 @@ public class BookSortServiceImpl implements BookSortService{
 			if(bookSort.getBookSortName()!=null && !bookSort.getBookSortName().equals("")){
 				//添加模糊查询功能
 				sql.append(" and book_sort_name like ? ");
-				list.add(bookSort.getBookSortName());
+				list.add("%"+bookSort.getBookSortName()+"%");
 			}
 		}
 		return bookSortDao.selectBookSort(sql.toString(), list.toArray());
