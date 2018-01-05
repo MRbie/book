@@ -22,7 +22,12 @@
 
 # 二：book 版本2.0.0
 ## 免费提供源码，有偿提供服务。
-## 待续......
+## 待续...... 2017/1/5增加图书类别功能，报表展示功能，完善1.0.0版本的登录过滤，增加注册功能。
+#### 1:图书类别的信息bookSort_info
+![](https://github.com/MRbie/book/blob/master/WebContent/resource/images/bookSort.png)
+#### 2:报表展示的信息echarts_info
+![](https://github.com/MRbie/book/blob/master/WebContent/resource/images/echarts.png)
+
 
 
 
