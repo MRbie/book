@@ -56,6 +56,7 @@ public class BookSortServiceImpl implements BookSortService{
 				list.add("%"+bookSort.getBookSortName()+"%");
 			}
 		}
+		sql.append(" order by book_sort_id desc ");
 		return bookSortDao.selectBookSort(sql.toString(), list.toArray());
 	}
 

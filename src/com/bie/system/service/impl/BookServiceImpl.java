@@ -64,7 +64,8 @@ public class BookServiceImpl implements BookService{
 			}
 			
 		}
-		sql.append(" order by a.product_id desc ");
+		//排序操作
+		sql.append(" order by book_id desc ");
 		return bookDao.selectBook(sql.toString(), list.toArray());
 	}
 

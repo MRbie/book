@@ -90,6 +90,7 @@ public class UserInfoInsertServiceImpl implements UserInfoInsertService{
 			}
 			
 		}
+		sql.append(" order by user_id desc ");
 		return userInfoDao.selectUser(sql.toString(), list.toArray());
 	}
 
