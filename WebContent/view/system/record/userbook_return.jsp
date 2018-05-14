@@ -36,7 +36,7 @@
 			<li>借阅查询</li>
 		</ul>
 	</div>
-	<form action="${basePath }system/book/select" method="post" class="form-inline">
+	<form action="${basePath }system/userbook/return" method="post" class="form-inline">
 		<div class="row alert alert-info" style="margin: 0px; padding: 5px;">
 			<div class="form-group">
 				<!-- <label>条件:</label> 
@@ -44,7 +44,7 @@
 					<option value="">图书名称</option>
 					<option value="">图书作者</option>
 				</select> -->
-				<input type="text" name="content" value="${result }" class="form-control" placeholder="请输入查询条件" />
+				<input type="text" name="bookName" value="${result }" class="form-control" placeholder="请输入图书名称" />
 			</div>
 			<input type="submit" class="btn btn-danger" value="查询"> 
 			<!-- <a href="system/book/insert" class="btn btn-success">

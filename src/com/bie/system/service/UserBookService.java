@@ -12,5 +12,5 @@ public interface UserBookService {
 	//查阅借书和还书记录
 	public List<UserBook> selectUserBookBorrow(UserBook ub);
 	
-	public List<UserBook> selectUserBookReturn(UserBook ub);
+	//public List<UserBook> selectUserBookReturn(UserBook ub);
 }

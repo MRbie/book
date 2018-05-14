@@ -59,13 +59,18 @@ public class UserBookServiceImpl implements UserBookService{
 				sql.append(" and userBookStatus = ? ");
 				list.add(ub.getUserBookStatus());
 			}
+			if(ub.getBookName()!=null && !ub.getBookName().equals("")){
+				sql.append(" and b.book_name = ? ");
+				list.add(ub.getBookName());
+			}
 		}
 		sql.append(" order by userBookId desc ");
 		return userBookDao.selectUserBook(sql.toString(), list.toArray());
 	}
 
 	
-	@Override
+	//暂时未用到
+	/*@Override
 	public List<UserBook> selectUserBookReturn(UserBook ub) {
 		StringBuilder sql=new StringBuilder("select * from user_book where 1=1 ");
 		List<Object> list=new ArrayList<Object>();
@@ -78,7 +83,7 @@ public class UserBookServiceImpl implements UserBookService{
 		}
 		sql.append(" order by userBookId desc ");
 		return userBookDao.selectUserBook(sql.toString(), list.toArray());
-	}
+	}*/
 
 	
 	

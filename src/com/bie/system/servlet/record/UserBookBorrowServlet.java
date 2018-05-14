@@ -31,11 +31,18 @@ public class UserBookBorrowServlet extends HttpServlet{
 			throws ServletException, IOException {
 		UserBookService service = new UserBookServiceImpl();
 		
+		String bookName = request.getParameter("bookName");
+		
+		
 		//
 		UserBook ub = new UserBook();
+		//
+		ub.setBookName(bookName);
+		
 		ub.setUserBookStatus("借书");
 		List<UserBook> selectUserBookBorrow = service.selectUserBookBorrow(ub);
 		if(selectUserBookBorrow != null && !"".equals(selectUserBookBorrow)){
+			request.setAttribute("result", bookName);
 			//将获取的用户信息保存到域中
 			request.setAttribute("list", selectUserBookBorrow);
 		}
