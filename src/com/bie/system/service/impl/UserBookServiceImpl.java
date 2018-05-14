@@ -4,22 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.bie.po.UserBook;
+import com.bie.system.dao.UserBookDao;
+import com.bie.system.dao.impl.UserBookDaoImpl;
 import com.bie.system.service.UserBookService;
 import com.bie.utils.BaseDao;
 
 public class UserBookServiceImpl implements UserBookService{
 
+	private UserBookDao userBookDao = new UserBookDaoImpl();
+	
 	@Override
 	public boolean insertUser(UserBook ub) {
 		try{
 			if(ub!=null && ub.getBookId()!=null && ub.getUserId() != null){
 				//sql语句
-				String sql="INSERT INTO user_book(userId,bookId,userBookStatus) VALUES(?,?,?)";
+				String sql="INSERT INTO user_book(userId,bookId,userBookStatus,userBookDate) VALUES(?,?,?,?)";
 				List<Object> list=new ArrayList<Object>();
 				//可以理解位将实体类中get到的信息放到数据库中，因为set设置的信息就是为了查到数据库中
 				list.add(ub.getUserId());//将设置好的账号信息保存到集合中
 				list.add(ub.getBookId());//将设置好的账号信息保存到集合中
 				list.add(ub.getUserBookStatus());//将设置好的账号信息保存到集合中
+				list.add(ub.getUserBookDate());//将设置好的账号信息保存到集合中
 				
 				
 				//将封装到集合list中的信息和sql语句传递到DbUtils封装好的 方法中
@@ -38,4 +43,43 @@ public class UserBookServiceImpl implements UserBookService{
 		return false;
 	}
 
+	@Override
+	public List<UserBook> selectUserBookBorrow(UserBook ub) {
+		//select u.*,b.*,ub.* 
+		//from user_info u,book_info b,user_book ub 
+		//where u.user_id=ub.userId and b.book_id=ub.bookId 
+		//and ub.userBookStatus="借书"
+		StringBuilder sql=new StringBuilder("select u.user_id,u.user_account,b.book_id,b.book_name,ub.*"
+				+ "from user_info u,book_info b,user_book ub "
+				+ " where u.user_id=ub.userId and b.book_id=ub.bookId and 1=1 ");
+		List<Object> list=new ArrayList<Object>();
+		if(ub!=null){
+			//按照姓名查询
+			if(ub.getUserBookStatus()!=null && !ub.getUserBookStatus().equals("")){
+				sql.append(" and userBookStatus = ? ");
+				list.add(ub.getUserBookStatus());
+			}
+		}
+		sql.append(" order by userBookId desc ");
+		return userBookDao.selectUserBook(sql.toString(), list.toArray());
+	}
+
+	
+	@Override
+	public List<UserBook> selectUserBookReturn(UserBook ub) {
+		StringBuilder sql=new StringBuilder("select * from user_book where 1=1 ");
+		List<Object> list=new ArrayList<Object>();
+		if(ub!=null){
+			//按照姓名查询
+			if(ub.getUserBookStatus()!=null && !ub.getUserBookStatus().equals("")){
+				sql.append(" and userBookStatus = ? ");
+				list.add(ub.getUserBookStatus());
+			}
+		}
+		sql.append(" order by userBookId desc ");
+		return userBookDao.selectUserBook(sql.toString(), list.toArray());
+	}
+
+	
+	
 }

@@ -206,4 +206,23 @@
   	</servlet-mapping>
   	
   	
+  	<servlet>
+  		<servlet-name>UserBookBorrowServlet</servlet-name>
+  		<servlet-class>com.bie.system.servlet.record.UserBookBorrowServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>UserBookBorrowServlet</servlet-name>
+  		<url-pattern>/system/userbook/borrow</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+  		<servlet-name>UserBookReturnServlet</servlet-name>
+  		<servlet-class>com.bie.system.servlet.record.UserBookReturnServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>UserBookReturnServlet</servlet-name>
+  		<url-pattern>/system/userbook/return</url-pattern>
+  	</servlet-mapping>
+  	
+  	
 </web-app>

@@ -1,6 +1,7 @@
 package com.bie.system.servlet.book;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -58,7 +59,7 @@ public class BookBorrowServlet extends HttpServlet{
 		boolean mark=service.borrowBook(book);
 		
 		//对借书进行记录
-		UserBook ub = new UserBook(userId, Integer.parseInt(bookId), MarkUtils.USER_BOOK_MARK_BORROW);
+		UserBook ub = new UserBook(userId, Integer.parseInt(bookId), MarkUtils.USER_BOOK_MARK_BORROW, new Date());
 		boolean insertUser = false;
 		if(ub != null && !"".equals(ubs) && !"null".equals(ubs)){
 			insertUser = ubs.insertUser(ub);

@@ -1,6 +1,7 @@
 package com.bie.system.servlet.book;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -59,7 +60,7 @@ public class BookRepayServlet extends HttpServlet{
 		//返回提示信息到页面
 		
 		//对借书进行记录
-		UserBook ub = new UserBook(userId, Integer.parseInt(bookId), MarkUtils.USER_BOOK_MARK_YEPARY);
+		UserBook ub = new UserBook(userId, Integer.parseInt(bookId), MarkUtils.USER_BOOK_MARK_RETURN, new Date());
 		boolean insertUser = false;
 		if(ub != null && !"".equals(ubs) && !"null".equals(ubs)){
 			insertUser = ubs.insertUser(ub);

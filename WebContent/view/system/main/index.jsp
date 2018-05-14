@@ -174,10 +174,10 @@
 
 						<ul class="submenu">
 							
-                            <li><a href="system/book/select" target="mainframe"> <i
+                            <li><a href="system/userbook/borrow" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 借书管理
 							</a></li>
-							<li><a href="system/bookSort/select" target="mainframe"> <i
+							<li><a href="system/userbook/return" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 还书管理
 							</a></li>
                       	     <!-- <li><a href="view/crm/customer/customer_list.html" target="mainframe"> <i
