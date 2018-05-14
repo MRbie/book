@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="d" uri="http://displaytag.sf.net"%>
 <%
 	//获取绝对路径路径 
 	String path = request.getContextPath();
@@ -52,7 +53,7 @@
 			</a> -->
 		</div>
 		<div class="row" style="padding: 15px;">
-			<table class="table table-hover table-striped table-bordered">
+			<%-- <table class="table table-hover table-striped table-bordered">
 				<tr>
 					<th>借阅编号</th>
 					<th>借阅人编号</th>
@@ -76,11 +77,11 @@
 					<td>${list.bookName }</td>
 					<td>${list.userBookDate }</td>
 					<td>${list.userBookStatus }</td>
-					<%-- <td>${list.bookPrice }</td>
+					<td>${list.bookPrice }</td>
 					<td>${list.bookName }</td>
 					<td>${list.bookType }</td>
-					<td>${list.bookPublish }</td> --%>
-					<%-- <td>
+					<td>${list.bookPublish }</td>
+					<td>
 						<c:choose>
 							<c:when test="${list.bookSum  ==0}">
 								<a id="clickIt" class="btn btn-default btn-sm" href="javascript:void(0)">借书</a> 
@@ -90,14 +91,29 @@
 							</c:when>
 						</c:choose>
 						<a class="btn btn-danger btn-sm" href="system/book/repay?bookId=${list.bookId}">还书</a>
-					</td> --%>
-					<%-- <td>
+					</td>
+					<td>
 						<a class="btn btn-warning btn-sm" href="system/book/update?bookId=${list.bookId}">修改</a> 
 						<a class="btn btn-danger btn-sm" href="system/book/delete?bookId=${list.bookId}">删除</a>
-					</td> --%>
+					</td>
 				</tr>
 				</c:forEach>
-			</table>
+			</table> --%>
+			
+			<d:table name="${list }" pagesize="5" requestURI="system/userbook/return" class="table table-hover table-condensed table-bordered">
+				<d:column property="userBookId" title="借阅编号"></d:column>
+				<d:column property="userId" title="借阅人编号"></d:column>
+				<d:column property="userAccount" title="借阅人"></d:column>
+				<d:column property="bookId" title="图书编号"></d:column>
+				<d:column property="bookName" title="图书名称"></d:column>
+				<d:column property="userBookDate" title="借阅日期"></d:column>
+				<d:column property="userBookStatus" title="借阅状态"></d:column>
+				
+				<%-- <d:column href="" paramId="userId" paramProperty="userId" title="详情" value="详情"></d:column>
+				 --%>
+				<%-- <d:column href="system/userinfo/update" paramId="userBookId" paramProperty="userBookId" title="修改" value="修改"></d:column>
+				<d:column href="system/userinfo/delete" paramId="userBookId" paramProperty="userBookId" title="删除" value="删除"></d:column> --%>
+			</d:table>
 		</div>
 	</form>
 </body>

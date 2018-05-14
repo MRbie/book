@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="d" uri="http://displaytag.sf.net"%>
 <%
 	//获取绝对路径路径 
 	String path = request.getContextPath();
@@ -55,7 +56,7 @@
 			</a>
 		</div>
 		<div class="row" style="padding: 15px;">
-			<table class="table table-hover table-striped table-bordered">
+			<%-- <table class="table table-hover table-striped table-bordered">
 				<!-- 图书名称 图书作者 图书价格 图书类型 图书出版社 图书总数 -->
 				<tr>
 					<th>图书编号</th>
@@ -79,7 +80,7 @@
 					<td>${list.bookType }</td>
 					<td>${list.bookPublish }</td>
 					<td>${list.bookSum }</td>
-					<%-- <td>${list.bookMark }</td> --%>
+					<td>${list.bookMark }</td>
 					<td>
 						<c:choose>
 							<c:when test="${list.bookSum  ==0}">
@@ -97,7 +98,34 @@
 					</td>
 				</tr>
 				</c:forEach>
-			</table>
+			</table> --%>
+			
+			<d:table name="${list }" pagesize="5" requestURI="system/book/select" class="table table-hover table-condensed table-bordered">
+				<d:column property="bookId" title="图书编号"></d:column>
+				<d:column property="bookName" title="图书名称"></d:column>
+				<d:column property="bookAuthor" title="图书作者"></d:column>
+				<d:column property="bookPrice" title="图书价格"></d:column>
+				<d:column property="bookType" title="图书类型"></d:column>
+				<d:column property="bookPublish" title="图书出版社"></d:column>
+				<d:column property="bookSum" title="图书总数"></d:column>
+				<d:column property="bookMark" title="图书操作"></d:column>
+				
+				<%-- <d:column href="" paramId="userId" paramProperty="userId" title="详情" value="详情"></d:column>
+				 --%>
+				<%-- <c:choose>
+					<c:when test="${list.bookSum  ==0}">
+						<a id="clickIt" class="btn btn-default btn-sm" href="javascript:void(0)">借书</a> 
+					</c:when>
+					<c:when test="${list.bookSum  > 0}">
+						<d:column href="system/book/borrow" paramId="bookId" paramProperty="bookId" title="借书" value="借书"></d:column>
+					</c:when>
+				</c:choose> --%>
+				
+				<d:column href="system/book/borrow" paramId="bookId" paramProperty="bookId" title="借书" value="借书"></d:column>
+				<d:column href="system/book/repay" paramId="bookId" paramProperty="bookId" title="还书" value="还书"></d:column>
+				<d:column href="system/book/update" paramId="bookId" paramProperty="bookId" title="修改" value="修改"></d:column>
+				<d:column href="system/book/delete" paramId="bookId" paramProperty="bookId" title="删除" value="删除"></d:column>
+			</d:table>
 		</div>
 	</form>
 </body>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="d" uri="http://displaytag.sf.net"%>
 <%
 	//获取绝对路径路径 
 	String path = request.getContextPath();
@@ -43,7 +44,7 @@
 			</a>
 		</div>
 		<div class="row" style="padding: 15px;">
-			<table class="table table-hover table-striped table-bordered">
+			<%-- <table class="table table-hover table-striped table-bordered">
 				<tr>
 					<th>用户编号</th>
 					<th>用户账号</th>
@@ -71,7 +72,24 @@
 					</td>
 				</tr>
 				</c:forEach>
-			</table>
+			</table> --%>
+			
+			<d:table name="${list }" pagesize="5" requestURI="system/user/select" class="table table-hover table-condensed table-bordered">
+				<d:column property="userId" title="用户编号"></d:column>
+				<d:column property="userAccount" title="用户账号"></d:column>
+				<d:column property="userPw" title="用户密码"></d:column>
+				<d:column property="userNumber" title="用户学号"></d:column>
+				<d:column property="userName" title="用户姓名"></d:column>
+				<d:column property="userAge" title="用户年龄"></d:column>
+				<d:column property="userSex" title="用户性别"></d:column>
+				<d:column property="userMark" title="用户标识"></d:column>
+				
+				<%-- <d:column href="" paramId="userId" paramProperty="userId" title="详情" value="详情"></d:column>
+				 --%>
+				<d:column href="system/userinfo/update" paramId="userId" paramProperty="userId" title="修改" value="修改"></d:column>
+				<d:column href="system/userinfo/delete" paramId="userId" paramProperty="userId" title="删除" value="删除"></d:column>
+			</d:table>
+			
 		</div>
 	</form>
 </body>

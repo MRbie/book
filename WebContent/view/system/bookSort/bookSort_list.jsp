@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="d" uri="http://displaytag.sf.net"%>
 <%
 	//获取绝对路径路径 
 	String path = request.getContextPath();
@@ -43,7 +44,7 @@
 			</a>
 		</div>
 		<div class="row" style="padding: 15px;">
-			<table class="table table-hover table-striped table-bordered">
+			<%-- <table class="table table-hover table-striped table-bordered">
 				<!-- 图书名称 图书作者 图书价格 图书类型 图书出版社 图书总数 -->
 				<tr>
 					<th>图书类别编号</th>
@@ -65,7 +66,20 @@
 					</td>
 				</tr>
 				</c:forEach>
-			</table>
+			</table> --%>
+			
+			
+			<d:table name="${list }" pagesize="5" requestURI="system/bookSort/select" class="table table-hover table-condensed table-bordered">
+				<d:column property="bookSortId" title="图书类别编号"></d:column>
+				<d:column property="bookSortName" title="图书类别名称"></d:column>
+				<d:column property="bookSortMark" title="图书类别标识"></d:column>
+				<d:column property="bookSortExtend" title="图书类别扩展"></d:column>
+				
+				<%-- <d:column href="" paramId="userId" paramProperty="userId" title="详情" value="详情"></d:column>
+				 --%>
+				<d:column href="system/bookSort/update" paramId="bookSortId" paramProperty="bookSortId" title="修改" value="修改"></d:column>
+				<d:column href="system/bookSort/delete" paramId="bookSortId" paramProperty="bookSortId" title="删除" value="删除"></d:column>
+			</d:table>
 		</div>
 	</form>
 </body>
