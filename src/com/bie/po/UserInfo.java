@@ -1,12 +1,18 @@
 package com.bie.po;
+
+import java.io.Serializable;
+
 /***
  * 1.2:写用户信息的实体类
  * 需要和自己设计好的数据库信息相对应。
  * @author biehongli
  *
  */
-public class UserInfo {
-	
+public class UserInfo implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	//userId userAccount userPw userNumber userName userAge userSex userMark
 	private Integer userId;//用户编号
 	private String userAccount;//用户账号

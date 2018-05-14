@@ -1,11 +1,17 @@
 package com.bie.po;
 
+import java.io.Serializable;
+
 /**
  * 图书的实体类
  * @author Administrator
  *
  */
-public class Book {
+public class Book implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	//bookId bookName bookAuthor bookPrice bookType bookPublish bookSum bookMark
 	private int bookId;//图书编号
 	private String bookName;//图书名称

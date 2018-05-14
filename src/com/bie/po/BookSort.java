@@ -1,12 +1,17 @@
 package com.bie.po;
 
+import java.io.Serializable;
+
 /***
  * 图书类别的实体类
  * @author Administrator
  *
  */
-public class BookSort {
-
+public class BookSort implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	//bookSortId bookSortName bookSortExtend bookSortMark
 	private int bookSortId;//图书类别编号
 	private String bookSortName;//图书类别名称

@@ -47,12 +47,12 @@
 											<fieldset>
 												<label class="block clearfix"> <span
 													class="block input-icon input-icon-right"> <input id="userId"
-														name="userAccount"  type="text" class="form-control"
+														name="userAccount" value="admin" type="text" class="form-control"
 														placeholder="请输入您的账号" /> <i class="icon-user"></i>
 												</span>
 												</label> <label class="block clearfix"> <span
 													class="block input-icon input-icon-right"> <input id="userPw"
-														name="userPw" type="password" class="form-control"
+														name="userPw" value="123456" type="password" class="form-control"
 														placeholder="请输入您的密码" /> <i class="icon-lock"></i>
 												</span>
 												</label>
