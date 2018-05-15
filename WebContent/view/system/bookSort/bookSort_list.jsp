@@ -69,7 +69,7 @@
 			</table> --%>
 			
 			
-			<d:table name="${list }" pagesize="5" requestURI="system/bookSort/select" class="table table-hover table-condensed table-bordered">
+			<d:table name="${list }" pagesize="5" requestURI="system/bookSort/select" class="table table-hover table-striped table-bordered">
 				<d:column property="bookSortId" title="图书类别编号"></d:column>
 				<d:column property="bookSortName" title="图书类别名称"></d:column>
 				<d:column property="bookSortMark" title="图书类别标识"></d:column>

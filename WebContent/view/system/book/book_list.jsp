@@ -100,7 +100,7 @@
 				</c:forEach>
 			</table> --%>
 			
-			<d:table name="${list }" pagesize="5" requestURI="system/book/select" class="table table-hover table-condensed table-bordered">
+			<d:table name="${list }" pagesize="5" requestURI="system/book/select" class="table table-hover table-striped table-bordered">
 				<d:column property="bookId" title="图书编号"></d:column>
 				<d:column property="bookName" title="图书名称"></d:column>
 				<d:column property="bookAuthor" title="图书作者"></d:column>

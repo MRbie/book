@@ -100,7 +100,7 @@
 				</c:forEach>
 			</table> --%>
 			
-			<d:table name="${list }" pagesize="5" requestURI="system/userbook/return" class="table table-hover table-condensed table-bordered">
+			<d:table name="${list }" pagesize="5" requestURI="system/userbook/return" class="table table-hover table-striped table-bordered">
 				<d:column property="userBookId" title="借阅编号"></d:column>
 				<d:column property="userId" title="借阅人编号"></d:column>
 				<d:column property="userAccount" title="借阅人"></d:column>

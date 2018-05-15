@@ -74,7 +74,7 @@
 				</c:forEach>
 			</table> --%>
 			
-			<d:table name="${list }" pagesize="5" requestURI="system/user/select" class="table table-hover table-condensed table-bordered">
+			<d:table name="${list }" pagesize="5" requestURI="system/user/select" class="table table-hover table-striped table-bordered">
 				<d:column property="userId" title="用户编号"></d:column>
 				<d:column property="userAccount" title="用户账号"></d:column>
 				<d:column property="userPw" title="用户密码"></d:column>
