@@ -30,8 +30,9 @@
 ![](https://github.com/MRbie/book/blob/master/WebContent/resource/images/echarts.png)
 
 
-
-
+# 三：book 版本3.0.0
+## 免费提供源码，有偿提供服务。
+## 2018/5/15 增加借书还书的记录功能，可以查看个人借书和还书记录。
 
 
 
