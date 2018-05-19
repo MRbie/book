@@ -108,7 +108,7 @@
 				<d:column property="bookType" title="图书类型"></d:column>
 				<d:column property="bookPublish" title="图书出版社"></d:column>
 				<d:column property="bookSum" title="图书总数"></d:column>
-				<d:column property="bookMark" title="图书操作"></d:column>
+				<%-- <d:column property="bookMark" title="图书操作"></d:column> --%>
 				
 				<%-- <d:column href="" paramId="userId" paramProperty="userId" title="详情" value="详情"></d:column>
 				 --%>
