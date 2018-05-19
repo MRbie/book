@@ -7,8 +7,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.bie.po.UserBook;
+import com.bie.po.UserInfo;
 import com.bie.system.service.UserBookService;
 import com.bie.system.service.impl.UserBookServiceImpl;
 
@@ -33,6 +35,10 @@ public class UserBookBorrowServlet extends HttpServlet{
 		
 		String bookName = request.getParameter("bookName");
 		
+		HttpSession session = request.getSession();
+		UserInfo user = (UserInfo) session.getAttribute("userLogin");
+		//String userAccount = user.getUserAccount();
+		
 		
 		//
 		UserBook ub = new UserBook();
@@ -40,7 +46,7 @@ public class UserBookBorrowServlet extends HttpServlet{
 		ub.setBookName(bookName);
 		
 		ub.setUserBookStatus("借书");
-		List<UserBook> selectUserBookBorrow = service.selectUserBookBorrow(ub);
+		List<UserBook> selectUserBookBorrow = service.selectUserBookBorrow(ub, user);
 		if(selectUserBookBorrow != null && !"".equals(selectUserBookBorrow)){
 			request.setAttribute("result", bookName);
 			//将获取的用户信息保存到域中

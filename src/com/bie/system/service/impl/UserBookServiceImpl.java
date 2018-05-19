@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.bie.po.UserBook;
+import com.bie.po.UserInfo;
 import com.bie.system.dao.UserBookDao;
 import com.bie.system.dao.impl.UserBookDaoImpl;
 import com.bie.system.service.UserBookService;
@@ -44,14 +45,14 @@ public class UserBookServiceImpl implements UserBookService{
 	}
 
 	@Override
-	public List<UserBook> selectUserBookBorrow(UserBook ub) {
+	public List<UserBook> selectUserBookBorrow(UserBook ub, UserInfo user) {
 		//select u.*,b.*,ub.* 
 		//from user_info u,book_info b,user_book ub 
 		//where u.user_id=ub.userId and b.book_id=ub.bookId 
 		//and ub.userBookStatus="借书"
 		StringBuilder sql=new StringBuilder("select u.user_id,u.user_account,b.book_id,b.book_name,ub.*"
 				+ "from user_info u,book_info b,user_book ub "
-				+ " where u.user_id=ub.userId and b.book_id=ub.bookId and 1=1 ");
+				+ " where u.user_id=ub.userId and b.book_id=ub.bookId and 1=1 and u.user_account = '" + user.getUserAccount() + "'");
 		List<Object> list=new ArrayList<Object>();
 		if(ub!=null){
 			//按照姓名查询
